@@ -691,7 +691,7 @@ select {
 }
 
 /* ===== TESTIMONIALS SECTION ===== */
-.testimonials {
+/* .testimonials {
     padding: var(--spacing-20) 0;
     background-color: var(--gray-50);
 }
@@ -737,14 +737,14 @@ select {
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scrollbar-width: none; /* For Firefox */
-    -ms-overflow-style: none; /* For IE and Edge */
+    scrollbar-width: none; /* For Firefox 
+    -ms-overflow-style: none;  For IE and Edge 
     gap: var(--spacing-4);
     padding: var(--spacing-4) 0;
 }
 
 .testimonial-track::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari and Opera */
+    display: none; 
 }
 
 .testimonial-card {
@@ -837,7 +837,158 @@ select {
     .testimonial-card {
         flex: 0 0 calc(33.333% - var(--spacing-4));
     }
+} */
+
+
+.review-con{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--gray-50);
 }
+
+.card-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* min-height: 20vh; */
+    background: transparent;
+}
+
+.card-list .card-item .card-link{
+    user-select: none;
+    display: block;
+    background: #ffff;
+    padding: 30px;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.05);
+    transition: 0.2s ease;
+}
+
+.card-list .card-item .card-link:active{
+    cursor: grabbing;
+}
+
+.card-list .card-link .card-image{
+    width: 100%;
+    /* aspect-ratio: 16 / 9; */
+    object-fit: cover;
+    border-radius: 10px;
+
+}
+
+.card-list .card-link .badge{
+    color: white;
+    padding: 8px 16px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin: 16px 0 10px;
+    background:  #dc3545; 
+    width: fit-content;
+    border-radius: 50px;
+}
+
+.card-list .card-link .badge.designer{
+    color: white ;
+    background-color: var(--gold-dark);
+}
+
+.card-list .card-link .badge.developer{
+    color:white;
+    background-color: var(--gold-dark);
+}
+
+.card-list .card-link .badge.gamer{
+    color: white ;
+    background-color: var(--gold-dark); 
+}
+
+.card-list .card-link .badge.editor {
+    color: white ;
+    background-color: var(--gold-dark); 
+}
+
+.card-list .card-link .card-title{
+    font-size: 0.8rem;
+    color: grey; 
+    /* font-weight: 600; */
+}
+
+.card-list .card-link .card-button {
+    height: 35px;  
+    width: 35px ;
+    border-radius: 50%;
+    margin: 30px 0 5px;
+    background:none;
+    cursor: pointer;
+    border: 2px solid #ee6611;
+    transform: rotate(-45deg);
+}
+
+.card-list .card-link:hover .card-button{
+    color: #ffff;
+    background: #3a3837;
+}
+
+.card-wrapper{
+    max-width: 1200px;
+    margin: 0 60px 35px;
+    overflow: hidden;
+}
+
+.card-wrapper .swiper-pagination-bullet{
+    height: 13px;
+    width: 13px;
+    opacity: 0.5;
+    background: #f3e8e1;
+}
+
+.swiper-scrollbar{
+    color: white;
+
+}
+
+.swiper-button-prev{
+    color: var(--plum);
+}
+
+.swiper-button-next{
+    color: var(--plum);
+}
+
+.review-stars {
+    display: flex;
+    margin-bottom: var(--spacing-md);
+}
+
+.star {
+    width: 20px;
+    height: 20px;
+    margin-right: 3px;
+    fill: var(--gold-dark);
+}
+
+
+
+/* .stars {
+    color: gold;
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+} */
+
+@media screen and (max-width: 768px){
+    .card-wrapper{
+        margin: 0 5px 25px;
+    }
+
+    .card-wrapper .swiper-slide-button{
+        display: none;
+    }
+
+}
+
 
 /* ===== CONTACT SECTION ===== */
 .contact {
