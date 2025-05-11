@@ -81,50 +81,90 @@ function initScrollAnimations() {
  * Testimonial Slider functionality
  */
 function initTestimonialSlider() {
-    const sliderTrack = document.querySelector('.testimonial-track');
-    const prevBtn = document.querySelector('.slider-btn.prev-btn');
-    const nextBtn = document.querySelector('.slider-btn.next-btn');
-    const dots = document.querySelectorAll('.dot');
+
+    new Swiper('.card-wrapper', {
+        loop: true,
+        spaceBetween: 30,
+      
+        // pagination bullets
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+          dynamicBullets:true
+        },
+      
+        // Navigation arrows
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
     
-    if (!sliderTrack || !prevBtn || !nextBtn) return;
+        // Responsive breakpoints
+        breakpoints:{
+            0:{
+                slidesPerView:1
+            },
+            768:{
+                slidesPerView:2
+            }, 
+            1024:{
+                slidesPerView:3
+            },
+        }
     
-    let currentSlide = 0;
-    let slidesToShow = getSlidesToShow();
-    let maxSlides = document.querySelectorAll('.testimonial-card').length - slidesToShow;
+    });
+    
+    // const sliderTrack = document.querySelector('.testimonial-track');
+    // const prevBtn = document.querySelector('.slider-btn.prev-btn');
+    // const nextBtn = document.querySelector('.slider-btn.next-btn');
+    // const dots = document.querySelectorAll('.dot');
+    // if (!sliderTrack || !prevBtn || !nextBtn) return;
+    
+    // let currentSlide = 0;
+    // let slidesToShow = getSlidesToShow();
+    // let maxSlides = document.querySelectorAll('.testimonial-card').length - slidesToShow;
     
     // Determine number of slides to show based on screen width
-    function getSlidesToShow() {
-        if (window.innerWidth >= 1024) {
-            return 3;
-        } else if (window.innerWidth >= 768) {
-            return 2;
-        } else {
-            return 1;
-        }
-    }
+    // function getSlidesToShow() {
+    //     if (window.innerWidth >= 1024) {
+    //         return 3;
+    //     } else if (window.innerWidth >= 768) {
+    //         return 2;
+    //     } else {
+    //         return 1;
+    //     }
+    // }
     
     // Update slider state on window resize
-    window.addEventListener('resize', function() {
-        slidesToShow = getSlidesToShow();
-        maxSlides = document.querySelectorAll('.testimonial-card').length - slidesToShow;
-        updateSliderPosition();
-    });
+    // window.addEventListener('resize', function() {
+    //     slidesToShow = getSlidesToShow();
+    //     maxSlides = document.querySelectorAll('.testimonial-card').length - slidesToShow;
+    //     updateSliderPosition();
+    // });
     
     // Previous slide button
-    prevBtn.addEventListener('click', function() {
-        if (currentSlide > 0) {
-            currentSlide--;
-            updateSliderPosition();
-        }
-    });
+    // if (prevBtn) {
+    //     prevBtn.addEventListener('click', function() {
+    //         if (currentSlide > 0) {
+    //             currentSlide--;
+    //             updateSliderPosition();
+    //         }
+    //         console.log("testing");
+    //     });
+    //     console.log("testing, are you working");
+    // }
     
     // Next slide button
-    nextBtn.addEventListener('click', function() {
-        if (currentSlide < maxSlides) {
-            currentSlide++;
-            updateSliderPosition();
-        }
-    });
+    // if (nextBtn) {
+    //     nextBtn.addEventListener('click', function() {
+    //         if (currentSlide < maxSlides) {
+    //             currentSlide++;
+    //             updateSliderPosition();
+    //         }
+    //         console.log("testing, i just clicked nextBTN");
+    //     });
+    //     console.log("testing, are you working");
+    // }
     
     // Dot navigation
     dots.forEach((dot, index) => {
